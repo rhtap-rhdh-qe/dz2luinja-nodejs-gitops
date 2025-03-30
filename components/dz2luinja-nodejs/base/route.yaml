@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: dz2luinja-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: dz2luinja-nodejs 
+  name: dz2luinja-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: dz2luinja-nodejs
+    weight: 100 
